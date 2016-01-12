@@ -109,4 +109,4 @@ def read_one_frame(filename="sequence.txt",dlm=","):
 	return np.array(A)
 				
 if __name__=='__main__':
-	print read_one_frame()
+	pass
