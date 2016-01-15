@@ -3,6 +3,8 @@
 # (c) 2015, Jorge De Los Santos
 # ITC-Bypasa
 # =============================
-from iodb import *
+import __init__
+
+print __dict__()
 
 

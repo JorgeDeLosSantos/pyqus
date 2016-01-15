@@ -1,10 +1,4 @@
 # -*- coding: mbcs -*-
-# pyodb.py
-# =============================
-# (c) 2015, Jorge De Los Santos
-# ITC-Bypasa
-# =============================
-
 """
 User defined functions for read odb file from Abaqus simulation.
 
@@ -27,14 +21,13 @@ See test_odb.py for an example.
 Run >> abaqus cae noGUI="test_odb.py"
 
 """
-
+import numpy as np
 from odbAccess import *
 from abaqusConstants import *
-import numpy as np
 
 def get_out_history(dbpath,outname,region,fname="out_data.txt"):
 	"""
-	Get history output >> to data file
+	Get history output >> to data file.
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")

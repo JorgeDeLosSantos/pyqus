@@ -13,6 +13,10 @@ from numpy import nan
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 
+def test():
+	plt.plot([1,2,3])
+	plt.show()
+
 def plot_dfile(figname="dfile.png",filename="data.txt",xlabel="X",ylabel="Y",dlm=","):
 	"""
 	Plot a data file with two columns, separated by a delimiter.
@@ -68,7 +72,6 @@ def plot_elements(figname="elements.png",nodesfile="nodes.txt",elementsfile="ele
 		ax.add_patch(p)
 	plt.axis('equal')
 	plt.axis('off')
-	#ax.plot(NC[:,0],NC[:,1],'ko',markersize=1.0)
 	plt.savefig(figname)
 
 def plot_sequence(outfolder="img",sequencefile="sequence.txt",elementsfile="elements.txt"):

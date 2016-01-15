@@ -3,6 +3,3 @@
 # (c) 2015, Jorge De Los Santos
 # ITC-Bypasa
 # =============================
-from iodb import *
-
-

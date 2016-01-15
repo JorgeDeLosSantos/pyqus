@@ -55,3 +55,9 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# Ignore OBD & other Abaqus files
+*.odb
+*.inp
+*.abq
+

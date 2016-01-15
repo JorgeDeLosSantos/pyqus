@@ -3,6 +3,8 @@
 # (c) 2015, Jorge De Los Santos
 # ITC-Bypasa
 # =============================
-from iodb import *
+import sys
+import os
 
-
+sys.path.append(os.path.dirname(os.getcwd()))
+#print os.getcwd()
