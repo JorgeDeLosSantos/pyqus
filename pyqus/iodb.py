@@ -24,18 +24,6 @@ Run >> abaqus cae noGUI="test_odb.py"
 import numpy as np
 from odbAccess import *
 from abaqusConstants import *
-
-def get_out_history(dbpath,outname,region,fname="out_data.txt"):
-	"""
-	Get history output >> to data file.
-	"""
-	odb = openOdb(path=dbpath)
-	f = open(fname,"w")
-	for step in odb.steps.keys():
-		dt = odb.steps[step].historyRegions[region].historyOutputs[outname].data
-		for time,ydata in dt:
-			f.write(str(time)+","+str(ydata)+"\n")
-	f.close()
 	
 def get_max_eqvs_bystep(dbpath,nstep=1,fname="max_eqvs.txt"):
 	"""
@@ -104,8 +92,6 @@ def get_max_pe(dbpath,fname="max_pe.txt"):
 			temp_list = []
 			for td in frame.fieldOutputs['PE'].values:
 				temp_list.append(td.maxPrincipal)
-				#f.write("%s\n"%td)}
-				#f.write("%s  %s  %s  %s\n"%(step,frame.frameValue,td.nodeLabel,td.magnitude))
 			maxv = max(temp_list)
 			f.write("%6.6f\t%6.6f\n"%(frame.frameValue + k*tbystep, maxv))
 		k += 1
@@ -196,34 +182,27 @@ def get_nodes_coords_undef(dbpath,inst,fname="nodes_undef.txt"):
 		f.write("%s,%s\n"%(node.coordinates[0],node.coordinates[1]))
 	f.close()
 
-def get_nodes_coords(dbpath,inst,stepname,nframe=-1,fname="nodes.txt"):
+def get_nodes_coordinates(dbpath,inst,stepname,nframe=-1,fname="nodes.txt"):
 	"""
 	Get nodes coordinates from meshed instance // last frame by default
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
 	_inst = odb.rootAssembly.instances[inst]
-	ic = odb.rootAssembly.instances[inst].nodes
-	vofplate = odb.steps[stepname].frames[nframe].fieldOutputs['U'].getSubset(region=_inst).values
-	#odb.steps[stepname].frames[nframe].fieldOutputs['U'].values
-	for k,jj in enumerate(vofplate):
-		f.write("%s,%s\n"%(ic[k].coordinates[0]+jj.data[0],ic[k].coordinates[1]+jj.data[1]))
+	ic = odb.rootAssembly.instances[inst].nodes # Initial coordinates
+	valofinst = odb.steps[stepname].frames[nframe].fieldOutputs['U'].getSubset(region=_inst).values
+	for k,jj in enumerate(valofinst):
+		if _inst.embeddedSpace == THREE_D: # 3D case
+			#f.write("%g,"%(ic[k].label)) # Write node label ? 
+			f.write("%0.4f,%0.4f,%0.4f\n"%(ic[k].coordinates[0]+jj.data[0],
+										   ic[k].coordinates[1]+jj.data[1],
+										   ic[k].coordinates[2]+jj.data[2]))
+		else: # 2D case
+			f.write("%0.4f,%0.4f\n"%(ic[k].coordinates[0]+jj.data[0]*1e2,
+									 ic[k].coordinates[1]+jj.data[1]*1e2))
 	f.close()
-	
-def get_border_nodes(dbpath,inst,stepname,arrayborder,nframe=-1,fname="border.txt"):
-	"""
-	UNTESTED - Get nodes on boundary
-	"""
-	odb = openOdb(path=dbpath)
-	f = open(fname,"w")
-	_inst = odb.rootAssembly.instances[inst]
-	ic = odb.rootAssembly.instances[inst].nodes
-	vofplate = odb.steps[stepname].frames[nframe].fieldOutputs['U'].getSubset(region=_inst).values
-	#for k,jj in enumerate(vofplate):
-	for k in arrayborder:
-		f.write("%s,%s,0.0\n"%(ic[k-1].coordinates[0]+vofplate[k-1].data[0],ic[k-1].coordinates[1]+vofplate[k-1].data[1]))
-	f.close()
-	
+
+
 def get_nodes_distance(dbpath,node1,node2,inst,stepname,nframe=-1):
 	"""
 	Calculate distance between two nodes
@@ -248,7 +227,7 @@ def get_distances(dbpath,inst,M1,M2,stepname,nframe=-1,filename="distances.txt")
 		f.write("%4.6f\n"%(get_nodes_distance(dbpath,jj,M2[ii],inst,stepname,nframe),))
 	f.close()
 	
-def get_elements_conect(dbpath,inst,fname="elements.txt"):
+def get_elements(dbpath,inst,fname="elements.txt"):
 	"""
 	Get connectivity elements. (For 2D elements)
 	
@@ -259,10 +238,23 @@ def get_elements_conect(dbpath,inst,fname="elements.txt"):
 	f = open(fname,"w")
 	_inst = odb.rootAssembly.instances[inst]
 	for el in _inst.elements:
-		if (len(el.connectivity)==4):
-			f.write("%s,%s,%s,%s\n"%(el.connectivity[0],el.connectivity[1],el.connectivity[2],el.connectivity[3]))
+		econn = el.connectivity
+		if len(econn)==2:
+			f.write("%g,%g\n"%(econn[0],econn[1]))
+		elif len(econn)==3:
+			f.write("%g,%g,%g\n"%(econn[0],econn[1]))
+		elif len(econn)==4:
+			f.write("%g,%g,%g,%g\n"%(econn[0],econn[1]))
+		elif len(econn)==6:
+			f.write("%g,%g,%g,%g,%g,%g\n"
+					%(econn[0],econn[1],econn[2],
+					  econn[3],econn[4],econn[5]))
+		elif len(econn)==8:
+			f.write("%g,%g,%g,%g,%g,%g,%g,%g\n"
+					%(econn[0],econn[1],econn[2],econn[3],
+					  econn[4],econn[5],econn[6],econn[7]))
 		else:
-			f.write("%s,%s,%s,%s\n"%(el.connectivity[0],el.connectivity[1],el.connectivity[2],"NaN"))
+			raise SyntaxError
 	f.close()
 	
 def find_deformable_body(dbpath):
@@ -271,9 +263,9 @@ def find_deformable_body(dbpath):
 	"""
 	odb = openOdb(path=dbpath)
 	for name,_inst in odb.rootAssembly.instances.items():
-		if _inst.type == DEFORMABLE_BODY:
+		if _inst.type == DEFORMABLE_BODY and name!="ASSEMBLY":
 			return name
-	return "None"
+	return None
 	
 def find_last_step(dbpath):
 	"""

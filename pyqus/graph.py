@@ -11,6 +11,8 @@
 import numpy as np
 from numpy import nan
 import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import mpl_toolkits.mplot3d.art3d as art3d
 from matplotlib.patches import Polygon
 
 def test():
@@ -72,6 +74,45 @@ def plot_elements(figname="elements.png",nodesfile="nodes.txt",elementsfile="ele
 		ax.add_patch(p)
 	plt.axis('equal')
 	plt.axis('off')
+	plt.savefig(figname)
+	
+
+def plot3D_elements(figname="elements.png",nodesfile="nodes.txt",elementsfile="elements.txt",dlm=","):
+	"""
+	Plot nodes and elements of mesh.
+	
+		figname:       Name of output picture
+		nodesfile:     Path of node data file
+		elementsfile:  Path of elements conectivity file
+		dlm:           Delimiter (i.e. ",","\t")
+	"""
+	NC = np.loadtxt(nodesfile, delimiter=dlm)
+	EC = np.loadtxt(elementsfile, delimiter=dlm)
+	fig =plt.figure()
+	ax=fig.add_subplot(111,projection='3d')
+	plt.hold(True)
+	for CURE in EC:
+		TEC = np.array([
+				[CURE[0],CURE[1],CURE[2],CURE[3]],
+				[CURE[2],CURE[5],CURE[6],CURE[2]],
+				[CURE[5],CURE[4],CURE[7],CURE[6]],
+				[CURE[4],CURE[0],CURE[3],CURE[7]],
+				[CURE[3],CURE[2],CURE[6],CURE[7]],
+				[CURE[0],CURE[4],CURE[5],CURE[1]]])
+		for telement in TEC:
+			XX,YY,ZZ = ([],[],[])
+			for node in telement:
+				XX.append(NC[node-1,0])
+				YY.append(NC[node-1,1])
+				ZZ.append(NC[node-1,2])
+			ax.plot_wireframe(XX,YY,ZZ,facecolor="#fefefe")
+	ax.set_xlim(np.min(NC[:,0]),np.max(NC[:,0]))
+	ax.set_ylim(np.min(NC[:,1]),np.max(NC[:,1]))
+	ax.set_zlim(np.min(NC[:,2]),np.max(NC[:,2]))
+	ax.view_init(45,120)
+	plt.axis('equal')
+	plt.axis('off')
+	#plt.show()
 	plt.savefig(figname)
 
 def plot_sequence(outfolder="img",sequencefile="sequence.txt",elementsfile="elements.txt"):
