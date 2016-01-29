@@ -27,7 +27,14 @@ from abaqusConstants import *
 	
 def get_max_eqvs_bystep(dbpath,nstep=1,fname="max_eqvs.txt"):
 	"""
-	Get Max. EQV. Mises Stresses 
+	Get Max. EQV. Mises Stresses
+	
+	Parameters
+	----------
+	
+	dbpath  :		Abaqus OBD File
+	nstep   :       Step number
+	fname   :       Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -45,6 +52,12 @@ def get_max_eqvs_bystep(dbpath,nstep=1,fname="max_eqvs.txt"):
 def get_max_eqvs(dbpath,fname="max_eqvs.txt"):
 	"""
 	Get Max. Von Mises EQV. Stresses (all steps - all nodes)
+	
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -65,6 +78,13 @@ def get_max_eqvs(dbpath,fname="max_eqvs.txt"):
 def get_max_pe_bystep(dbpath,nstep=1,fname="max_pe.txt"):
 	"""
 	Get Max. Plastic Strains (by step - all nodes)
+	
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	nstep   :      Step number
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -82,6 +102,12 @@ def get_max_pe_bystep(dbpath,nstep=1,fname="max_pe.txt"):
 def get_max_pe(dbpath,fname="max_pe.txt"):
 	""""
 	Get Max. Plastic Strains (all nodes - all steps)
+	
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -100,6 +126,12 @@ def get_max_pe(dbpath,fname="max_pe.txt"):
 def get_max_ne(dbpath,fname="max_pe.txt"):
 	"""
 	Get Maximum Nominal Strains (Max. principal)
+
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -119,6 +151,12 @@ def get_max_ne(dbpath,fname="max_pe.txt"):
 def get_max_rt(dbpath,fname="max_rt.txt"):
 	"""
 	Get maximum reactions forces
+
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -137,6 +175,12 @@ def get_max_rt(dbpath,fname="max_rt.txt"):
 def get_max_v(dbpath,fname="max_v.txt"):
 	"""
 	Get Max. Velocity  (all steps - all nodes - all components)
+	
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -155,7 +199,7 @@ def get_max_v(dbpath,fname="max_v.txt"):
 
 def get_deformed_sequence(dbpath,inst,fname="sequence.txt"):
 	"""
-	UNTESTED
+	Untested function, please don't use.
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -174,6 +218,13 @@ def get_deformed_sequence(dbpath,inst,fname="sequence.txt"):
 def get_nodes_coords_undef(dbpath,inst,fname="nodes_undef.txt"):
 	"""
 	Get Nodes coordinates from meshed instance (last frame)
+	
+	Parameters
+	----------
+	
+	dbpath  :      Abaqus ODB file
+	inst    :      Instance name
+	fname   :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -185,6 +236,15 @@ def get_nodes_coords_undef(dbpath,inst,fname="nodes_undef.txt"):
 def get_nodes_coordinates(dbpath,inst,stepname,nframe=-1,fname="nodes.txt"):
 	"""
 	Get nodes coordinates from meshed instance // last frame by default
+	
+	Parameters
+	----------
+	
+	dbpath   :      Abaqus ODB file
+	inst     :      Instance name
+	stepname :      Step name
+	nframe   :      Number of frame
+	fname    :      Filename for output data
 	"""
 	odb = openOdb(path=dbpath)
 	f = open(fname,"w")
@@ -206,6 +266,16 @@ def get_nodes_coordinates(dbpath,inst,stepname,nframe=-1,fname="nodes.txt"):
 def get_nodes_distance(dbpath,node1,node2,inst,stepname,nframe=-1):
 	"""
 	Calculate distance between two nodes
+
+	Parameters
+	----------
+	
+	dbpath   :      Abaqus ODB file
+	node1    :      Number of node 1
+	node2    :      Number of node 2
+	inst     :      Instance name
+	stepname :      Step name
+	nframe   :      Number of frame, -1 for last frame (See List Indexing)
 	"""
 	odb = openOdb(path=dbpath)
 	_inst = odb.rootAssembly.instances[inst]
