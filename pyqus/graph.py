@@ -1,13 +1,4 @@
 # -*- coding: mbcs -*-
-# =============================
-# (c) 2015, Jorge De Los Santos
-# ITC-Bypasa
-# =============================
-# 
-# Required packages:
-#	    	         - Numpy
-#   	             - Matplotlib
-
 import numpy as np
 from numpy import nan
 import matplotlib.pyplot as plt

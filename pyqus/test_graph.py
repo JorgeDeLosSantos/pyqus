@@ -1,8 +1,4 @@
 # -*- coding: mbcs -*-
-# =============================
-# (c) 2015, Jorge De Los Santos
-# ITC-Bypasa
-# =============================
 from graph import *
 
 plot_elements(figname=r"img/elements_frame.svg",nodesfile=r"dat/nodes_frame.txt",elementsfile=r"dat/elements_frame.txt")

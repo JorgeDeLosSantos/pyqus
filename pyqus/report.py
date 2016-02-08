@@ -1,10 +1,4 @@
 # -*- coding: mbcs -*-
-#
-# =============================
-# (c) 2015, Jorge De Los Santos
-# ITC-Bypasa
-# =============================
-# 
 """
 Generate a customized PDF or HTML Report from 
 an Abaqus OBD file.
@@ -54,7 +48,9 @@ def replace_data(data,template,toreplace):
 	return _STR
 	
 def latex2pdf(filename,pdfname="ABAQUS_RPT.pdf"):
-	""" Compile latex source with out index """
+	""" 
+	Compile latex source with out index 
+	"""
 	this = "pdflatex -synctex=1 -interaction=nonstopmode "+filename
 	os.system(this)
 	shutil.move(filename[:-3]+"pdf",pdfname)

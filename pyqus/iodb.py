@@ -1,25 +1,19 @@
 # -*- coding: mbcs -*-
 """
-User defined functions for read odb file from Abaqus simulation.
+Functions for read Abaqus odb files.
 
 Generate plain data about:
 
-> Parts
-> Instances
-> Materials
-> Steps 
-> Nodes coordinates
-> Deformed shapes
-> Max. Von Mises Stresses
-> Max. Nominal Strains
-> Max. Plastic EQV. Strains
-> Max. Reactions forces
-
-See test_odb.py for an example.
-
-
-Run >> abaqus cae noGUI="test_odb.py"
-
+* Parts
+* Instances
+* Materials
+* Steps 
+* Nodes coordinates
+* Deformed shapes
+* Max. Von Mises Stresses
+* Max. Nominal Strains
+* Max. Plastic EQV. Strains
+* Max. Reactions forces
 """
 import numpy as np
 from odbAccess import *
@@ -429,3 +423,6 @@ def get_job(dbpath):
 	creation_time = odb.jobData.creationTime
 	precision = odb.jobData.precision
 	return [(analysis_code,creation_time,precision)]
+
+if __name__ == '__main__':
+	pass

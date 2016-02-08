@@ -71,3 +71,7 @@ def create_reference_point(_part,idxvert,MODEL_NAME,center=False):
 
 def translate_instance(inst,vect,MODEL_NAME):
 	mdb.models[MODEL_NAME].rootAssembly.instances[inst].translate(vector=vect)
+	
+	
+if __name__=='__main__':
+	pass

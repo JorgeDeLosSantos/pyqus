@@ -11,11 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-.. automodule:: pyqus.iodb
-    :members:
-    :undoc-members:
-    :inherited-members:
-    :show-inheritance:
+   _contents/iodb.rst
+   _contents/abq.rst
+   _contents/graph.rst
+   _contents/report.rst
 
 Indices and tables
 ==================
