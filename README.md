@@ -2,7 +2,7 @@
 
 Python codes for post-processing of Abaqus ODB files.
 
-![](pyqus/docs/source/_static/pyqus_logo.png)
+![](docs/source/_static/pyqus_logo.png)
 
 ### Project status
 
