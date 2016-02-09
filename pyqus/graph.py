@@ -6,17 +6,23 @@ from mpl_toolkits.mplot3d import Axes3D
 import mpl_toolkits.mplot3d.art3d as art3d
 from matplotlib.patches import Polygon
 
-def test():
-	plt.plot([1,2,3])
-	plt.show()
 
-def plot_dfile(figname="dfile.png",filename="data.txt",xlabel="X",ylabel="Y",dlm=","):
+def plot_dfile(figname,filename,xlabel="X",ylabel="Y",dlm=","):
 	"""
 	Plot a data file with two columns, separated by a delimiter.
-		fname: Filename   i.e. "data_file.txt"
-		xlabel: X-Axis Label  i.e. "Time (s)"
-		ylabel: Y-Axis Label  i.e. "Stress (MPa)"
-		dlm: Delimiter  i.e. ","
+	
+	Parameters
+	----------
+	figname: str
+		Name of output picture  i.e. "image.png"
+	filename  : str
+		Filename   i.e. "data_file.txt"
+	xlabel : str
+		X-Axis Label  i.e. "Time (s)"
+	ylabel : str
+		Y-Axis Label  i.e. "Stress (MPa)"
+	dlm    : str
+		Delimiter  i.e. ","
 	"""
 	D = np.loadtxt(filename, delimiter=dlm)
 	XX = D[:,0]
@@ -28,10 +34,20 @@ def plot_dfile(figname="dfile.png",filename="data.txt",xlabel="X",ylabel="Y",dlm
 	ax.set_ylabel(ylabel)
 	plt.savefig(figname)
 
-def plot_nodes(figname="nodes.png",nodesfile="nodes.txt",dlm=","):
+
+def plot_nodes(figname,nodesfile="nodes.txt",dlm=","):
 	"""
-	Plot nodes of mesh, the data file must be contain two columns: 
-	X and Y coordinates for each node separated by delimiter.
+	Plot nodes, the data file must be contain two columns: 
+	X and Y coordinates for each node separated by delimiter dlm.
+	
+	Parameters
+	----------
+	figname   : str
+		Name of output picture
+	nodesfile : str
+		Filename for nodes data   i.e. "data_file.txt"
+	dlm       : str
+		Delimiter    i.e.  "," or "\t"
 	"""
 	D = np.loadtxt(nodesfile, delimiter=dlm)
 	XX = D[:,0]
@@ -41,15 +57,22 @@ def plot_nodes(figname="nodes.png",nodesfile="nodes.txt",dlm=","):
 	ax.plot(XX,YY,"ko",markersize=1.0)
 	plt.axis('equal')
 	plt.savefig(figname)
-	
+
+
 def plot_elements(figname="elements.png",nodesfile="nodes.txt",elementsfile="elements.txt",dlm=","):
 	"""
 	Plot nodes and elements of mesh.
 	
-		figname:       Name of output picture
-		nodesfile:     Path of node data file
-		elementsfile:  Path of elements conectivity file
-		dlm:           Delimiter (i.e. ",","\t")
+	Parameters
+	----------
+	figname      : str
+		Name of output picture
+	nodesfile    : str
+		Path of node data file
+	elementsfile : str
+		Path of elements conectivity file
+	dlm          : str
+		Delimiter (i.e. ",","\t")
 	"""
 	NC = np.loadtxt(nodesfile, delimiter=dlm)
 	EC = np.loadtxt(elementsfile, delimiter=dlm)
@@ -72,10 +95,16 @@ def plot3D_elements(figname="elements.png",nodesfile="nodes.txt",elementsfile="e
 	"""
 	Plot nodes and elements of mesh.
 	
-		figname:       Name of output picture
-		nodesfile:     Path of node data file
-		elementsfile:  Path of elements conectivity file
-		dlm:           Delimiter (i.e. ",","\t")
+	Parameters
+	----------
+	figname      : str
+		Name of output picture
+	nodesfile    : str   
+		Path of node data file
+	elementsfile : str 
+		Path of elements conectivity file
+	dlm          : str
+		Delimiter (i.e. ",","\t")
 	"""
 	NC = np.loadtxt(nodesfile, delimiter=dlm)
 	EC = np.loadtxt(elementsfile, delimiter=dlm)
@@ -106,42 +135,7 @@ def plot3D_elements(figname="elements.png",nodesfile="nodes.txt",elementsfile="e
 	#plt.show()
 	plt.savefig(figname)
 
-def plot_sequence(outfolder="img",sequencefile="sequence.txt",elementsfile="elements.txt"):
-	"""
-	untested
-	"""
-	#NC = np.loadtxt(nodesfile, delimiter=dlm)
-	EC = np.loadtxt(elementsfile, delimiter=dlm)
-	f = plt.figure()
-	ax = f.add_subplot(111)
-	plt.hold(True)
-	while True:
-		for element in EC:
-			XX = []
-			for node in element:
-				if str(node)!="nan":
-					XX.append([NC[node-1,0],NC[node-1,1]])
-			p = Polygon(XX, True, fc="#00DDDD", ec="#778877")
-			ax.add_patch(p)
-		plt.axis('equal')
-		plt.savefig(figname)
-	
-def read_one_frame(filename="sequence.txt",dlm=","):
-	"""
-	untested
-	"""
-	f = open(filename,"r")
-	txt = f.readlines()
-	A = []
-	XX = []
-	for line in txt:
-		if line.startswith("="):
-			A.append(XX)
-			XX = []
-			continue
-		XX.append(np.array(line))
-	A.remove([])
-	return np.array(A)
+
 				
 if __name__=='__main__':
 	pass

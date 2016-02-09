@@ -6,6 +6,9 @@
 Welcome to PyQus's documentation!
 =================================
 
+.. image:: _static/pyqus_logo.png
+	:scale: 100%
+
 Contents:
 
 .. toctree::

@@ -1,35 +1,49 @@
 # -*- coding: mbcs -*-
-from part import *
-from material import *
-from section import *
-from assembly import *
-from step import *
-from interaction import *
-from load import *
-from mesh import *
-from optimization import *
-from job import *
-from sketch import *
-from visualization import *
-from connectorBehavior import *
 
-def import_defbody(odbpath,nframe,inst="PLATE",nstep=1,pname="plate",model="Model-1"):
-	mdb.models[model].PartFromOdb(frame=int(nframe), instance=inst, name=pname, 
+import_error_str = """
+Please try run in Abaqus/CAE script mode, as follows:
+
+>> abaqus cae noGUI="test_script.py"
+
+or verify that you have Abaqus installed.
+"""
+
+try:
+	from part import *
+	from material import *
+	from section import *
+	from assembly import *
+	from step import *
+	from interaction import *
+	from load import *
+	from mesh import *
+	from sketch import *
+except ImportError:
+	print import_error_str
+	pass
+
+
+def import_deformed_body(odbpath,nframe,inst="PLATE",nstep=1,partname="plate",model="Model-1"):
+	"""
+	Import deformed body from odbpath, in a specified frame, in a specified step,
+	and save this as partname in the model.
+	"""
+	mdb.models[model].PartFromOdb(frame=int(nframe), instance=inst, name=partname, 
     odb=session.openOdb(odbpath), shape=DEFORMED, step=nstep)
 
 
-def create_2d_analytical(asname,stp_path,MODEL_NAME):
-	print "Current part: ",asname
-	mdb.openStep(stp_path + asname + ".STEP", scaleFromFile=OFF)
-	mdb.models[MODEL_NAME].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, name=asname)
+def create_2d_analitycal_from_file(partname,stp_path,MODEL_NAME):
+	print "Current part: ",partname
+	mdb.openStep(stp_path + partname + ".STEP", scaleFromFile=OFF)
+	mdb.models[MODEL_NAME].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, name=partname)
 	mdb.models[MODEL_NAME].ConstrainedSketch(name='__profile__', sheetSize=10.0)
 	mdb.models[MODEL_NAME].sketches['__profile__'].sketchOptions.setValues(gridOrigin=(0.0, 0.0))
-	mdb.models[MODEL_NAME].sketches['__profile__'].retrieveSketch(sketch=mdb.models[MODEL_NAME].sketches[asname])
-	mdb.models[MODEL_NAME].Part(dimensionality=TWO_D_PLANAR, name=asname[7::], type=ANALYTIC_RIGID_SURFACE)
-	mdb.models[MODEL_NAME].parts[asname[7::]].AnalyticRigidSurf2DPlanar(sketch=mdb.models[MODEL_NAME].sketches['__profile__'])
+	mdb.models[MODEL_NAME].sketches['__profile__'].retrieveSketch(sketch=mdb.models[MODEL_NAME].sketches[partname])
+	mdb.models[MODEL_NAME].Part(dimensionality=TWO_D_PLANAR, name=partname[7::], type=ANALYTIC_RIGID_SURFACE)
+	mdb.models[MODEL_NAME].parts[partname[7::]].AnalyticRigidSurf2DPlanar(sketch=mdb.models[MODEL_NAME].sketches['__profile__'])
 	del mdb.models[MODEL_NAME].sketches['__profile__']
 
-def create_2d_deformable(bname,stp_path,MODEL_NAME):
+def create_2d_deformable_from_file(bname,stp_path,MODEL_NAME):
 	mdb.openStep(stp_path + 'sketch_mp_mod' + '.STEP', scaleFromFile=OFF)
 	mdb.models[MODEL_NAME].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, name=bname)
 	mdb.models[MODEL_NAME].ConstrainedSketch(name='__profile__', sheetSize=10.0)

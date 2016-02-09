@@ -21,7 +21,7 @@ Please try run in Abaqus/CAE script mode, as follows:
 
 >> abaqus cae noGUI="test_script.py"
 
-or verify that you have installed Abaqus.
+or verify that you have Abaqus installed.
 """
 
 import numpy as np
