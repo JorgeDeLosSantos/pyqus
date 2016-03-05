@@ -1,6 +1,5 @@
-**********
 PyQus IODB
-**********
+----------
 
 Documentation for iodb module
 

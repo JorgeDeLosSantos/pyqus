@@ -1,5 +1,5 @@
 .. PyQus documentation master file, created by
-   sphinx-quickstart on Thu Jan 14 21:55:04 2016.
+   sphinx-quickstart on Fri Mar 04 15:12:59 2016.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -18,6 +18,7 @@ Contents:
    _contents/abq.rst
    _contents/graph.rst
    _contents/report.rst
+
 
 Indices and tables
 ==================

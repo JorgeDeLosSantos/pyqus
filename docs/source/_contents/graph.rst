@@ -1,6 +1,5 @@
-***********
 PyQus GRAPH
-***********
+-----------
 
 Documentation for graph module
 
