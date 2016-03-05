@@ -446,6 +446,9 @@ def get_job(dbpath):
 	precision = odb.jobData.precision
 	return [(analysis_code,creation_time,precision)]
 
+def get_this(): 
+    pass
+
 
 if __name__ == '__main__':
 	pass
