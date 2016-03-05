@@ -52,10 +52,8 @@ def get_max_eqvs(dbpath,fname="max_eqvs.txt"):
 		for frame in odb.steps[step].frames:
 			temp_list = []
 			for td in frame.fieldOutputs['S'].values:
-				temp_list.append(td.mises)
-				#f.write("%s  %s  %s\n"%(step,frame.frameValue,td.mises))
-				#f.write("%s  %s  %s  %s\n"%(step,frame.frameValue,td.nodeLabel,td.magnitude))
-			maxv = max(temp_list)
+				temp_list.append(td.mises)	
+			maxv = max(temp_list) # Max value
 			f.write("%6.6f\t%6.4f\n"%(frame.frameValue + k*tbystep, maxv))
 		k += 1
 	f.close()
@@ -308,7 +306,7 @@ def get_elements(dbpath,inst,fname="elements.txt"):
 
 def find_deformable_body(dbpath):
 	"""
-	Return name of first deformable body in the analysis
+	Return name of first deformable body in the analysis.
 	
 	Parameters
 	----------
@@ -339,7 +337,9 @@ def find_last_step(dbpath):
 
 def get_steps(dbpath):
 	"""
-	Return all steps names from odb file
+	Return all steps names from odb file, also include 
+	additional information as time duration, number of frames 
+	per step and procedure type. 
 	
 	Parameters
 	----------
@@ -445,6 +445,7 @@ def get_job(dbpath):
 	creation_time = odb.jobData.creationTime
 	precision = odb.jobData.precision
 	return [(analysis_code,creation_time,precision)]
+
 
 if __name__ == '__main__':
 	pass

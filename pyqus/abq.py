@@ -23,7 +23,7 @@ except ImportError:
 	pass
 
 
-def import_deformed_body(odbpath,nframe,inst="PLATE",nstep=1,partname="plate",model="Model-1"):
+def import_deformed_body(odbpath,inst,nstep,nframe=-1,partname="Imported-Part",model="Model-1"):
 	"""
 	Import deformed body from odbpath, in a specified frame, in a specified step,
 	and save this as partname in the model.
@@ -33,7 +33,6 @@ def import_deformed_body(odbpath,nframe,inst="PLATE",nstep=1,partname="plate",mo
 
 
 def create_2d_analitycal_from_file(partname,stp_path,MODEL_NAME):
-	print "Current part: ",partname
 	mdb.openStep(stp_path + partname + ".STEP", scaleFromFile=OFF)
 	mdb.models[MODEL_NAME].ConstrainedSketchFromGeometryFile(geometryFile=mdb.acis, name=partname)
 	mdb.models[MODEL_NAME].ConstrainedSketch(name='__profile__', sheetSize=10.0)
@@ -53,15 +52,18 @@ def create_2d_deformable_from_file(bname,stp_path,MODEL_NAME):
 	mdb.models[MODEL_NAME].parts[bname].BaseShell(sketch=mdb.models[MODEL_NAME].sketches['__profile__'])
 	del mdb.models[MODEL_NAME].sketches['__profile__']
 
-def create_material(matname,dens,elmod,nu,plastic,MODEL_NAME):
+def create_material(name,density,E,nu,plastic=None,MODEL_NAME="Model-01"):
+	"""
+	Temperature independent properties
+	"""
 	mdb.models[MODEL_NAME].Material(name=matname)
-	mdb.models[MODEL_NAME].materials[matname].Density(table=((dens, ), 
-		))
-	mdb.models[MODEL_NAME].materials[matname].Elastic(table=((elmod, 
-		nu), ))
-	mdb.models[MODEL_NAME].materials[matname].Plastic(table=plastic)
+	mdb.models[MODEL_NAME].materials[matname].Density(table=((dens, ),))
+	mdb.models[MODEL_NAME].materials[matname].Elastic(table=((E, nu), ))
+	if plastic not is None:
+		mdb.models[MODEL_NAME].materials[matname].Plastic(table=plastic)
 	
-def create_reference_point(_part,idxvert,MODEL_NAME,center=False):
+	
+def create_reference_point(_part,idxvert,center=False,,MODEL_NAME):
 	"""
 	Create a reference point in a rigid part.
 	
@@ -83,8 +85,8 @@ def create_reference_point(_part,idxvert,MODEL_NAME,center=False):
 		mdb.models[MODEL_NAME].parts[_part].edges[0], CENTER))
 	
 
-def translate_instance(inst,vect,MODEL_NAME):
-	mdb.models[MODEL_NAME].rootAssembly.instances[inst].translate(vector=vect)
+def translate_instance(inst,vector,MODEL_NAME):
+	mdb.models[MODEL_NAME].rootAssembly.instances[inst].translate(vector=vector)
 	
 	
 if __name__=='__main__':

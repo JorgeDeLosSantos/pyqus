@@ -1,10 +1,26 @@
 # -*- coding: mbcs -*-
 import numpy as np
 from numpy import nan
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-import mpl_toolkits.mplot3d.art3d as art3d
-from matplotlib.patches import Polygon
+
+warning = "We suggest you use Matplotlib instead of PyQus Graph module"
+import_error_str = """
+Please install Matplotlib package (http://matplotlib.org/users/installing.html)
+
+Warning: %s
+"""%(warning)
+# Print warning everywhere
+
+print(warning)
+
+a = 10
+
+try:
+	import matplotlib.pyplot as plt
+	from mpl_toolkits.mplot3d import Axes3D
+	import mpl_toolkits.mplot3d.art3d as art3d
+	from matplotlib.patches import Polygon
+except ImportError:
+	print import_error_str
 
 
 def plot_dfile(figname,filename,xlabel="X",ylabel="Y",dlm=","):
