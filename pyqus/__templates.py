@@ -159,94 +159,94 @@ JOB_TEMPLATE = r"""
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html Lang="en">
-	<head>
-		<meta charset='utf-8'>
-		<title>Abaqus Report</title>
-	</head>
-	<body>
-		<center><h1>Abaqus Report<h1>
-		<h3>Dynamic Explicit Simulation</h3></center>
-		
-		_contents_
-		
-	</body>
+    <head>
+        <meta charset='utf-8'>
+        <title>Abaqus Report</title>
+    </head>
+    <body>
+        <center><h1>Abaqus Report<h1>
+        <h3>Dynamic Explicit Simulation</h3></center>
+        
+        _contents_
+        
+    </body>
 </html>
 """
 
 CONTENTS_HTML_TEMPLATE = """
-	<h3>Materials</h3>
+    <h3>Materials</h3>
 
-	<table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
-		<caption>Materials list</caption>
-		<tr>
-			<th>Name</th>
-			<th>Elastic modulus</th>
-			<th>Poisson ratio</th>
-			<th>Density</th>
-		</tr>
-		_materialstemplate_
-	</table>
-	
-	<h3>Parts</h3>
-	<table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
-		<tr>
-			<th>Name</th>
-			<th>Type</th>
-		</tr>
-		_partstemplate_
-	</table>
-	
-	<h3>Instances</h3>
-	<table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
-		<tr>
-			<th>Name</th>
-			<th>Nodes</th>
-			<th>Elements</th>
-		</tr>
-		_instancestemplate_
-	</table>
-	
-	<h3>Steps</h3>
-	<table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
-		<tr>
-			<th>Name</th>
-			<th>Time</th>
-			<th>Frames</th>
-			<th>Procedure</th>
-		</tr>
-		_stepstemplate_
-	</table>
-	
-	<h3>Job</h3>
-	<table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
-		<tr>
-			<th>Analysis code</th>
-			<th>Creation time</th>
-			<th>Precision</th>
-		</tr>
-		_jobtemplate_
-	</table>
-	
-	<h2>Results</h2>
-	<h3>Deformed shape</h3>
-	
-	<img src="_deformedshape_" width="400" height="300">
+    <table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
+        <caption>Materials list</caption>
+        <tr>
+            <th>Name</th>
+            <th>Elastic modulus</th>
+            <th>Poisson ratio</th>
+            <th>Density</th>
+        </tr>
+        _materialstemplate_
+    </table>
+    
+    <h3>Parts</h3>
+    <table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+        _partstemplate_
+    </table>
+    
+    <h3>Instances</h3>
+    <table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
+        <tr>
+            <th>Name</th>
+            <th>Nodes</th>
+            <th>Elements</th>
+        </tr>
+        _instancestemplate_
+    </table>
+    
+    <h3>Steps</h3>
+    <table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
+        <tr>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Frames</th>
+            <th>Procedure</th>
+        </tr>
+        _stepstemplate_
+    </table>
+    
+    <h3>Job</h3>
+    <table border=1 bordercolor="#7788DD" cellspacing=0 cellpadding=2 bgcolor="#FFFFFF">
+        <tr>
+            <th>Analysis code</th>
+            <th>Creation time</th>
+            <th>Precision</th>
+        </tr>
+        _jobtemplate_
+    </table>
+    
+    <h2>Results</h2>
+    <h3>Deformed shape</h3>
+    
+    <img src="_deformedshape_" width="400" height="300">
 
-	<h3>Von Mises Stresses</h3>
-	
-	<img src="_vonmises_" width="400" height="300">
-	
-	<h3>Plastic strain</h3>
-	
-	<img src="_pestrain_" width="400" height="300">
-	
-	<h3>Nominal strain</h3>
-	
-	<img src="_nestrain_" width="400" height="300">
-	
-	<h3>Reaction force</h3>
-	
-	<img src="_rtforce_" width="400" height="300">
+    <h3>Von Mises Stresses</h3>
+    
+    <img src="_vonmises_" width="400" height="300">
+    
+    <h3>Plastic strain</h3>
+    
+    <img src="_pestrain_" width="400" height="300">
+    
+    <h3>Nominal strain</h3>
+    
+    <img src="_nestrain_" width="400" height="300">
+    
+    <h3>Reaction force</h3>
+    
+    <img src="_rtforce_" width="400" height="300">
 """
 
 MATERIALS_CURVE_TEMPLATE = r"""
@@ -257,44 +257,44 @@ MATERIALS_CURVE_TEMPLATE = r"""
 """
 
 MATERIALS_HTML_TEMPLATE = r"""
-		<tr>
-			<td>_materialname_</td>
-			<td>_young_</td>
-			<td>_poisson_</td>
-			<td>_density_</td>
-		</tr>
+        <tr>
+            <td>_materialname_</td>
+            <td>_young_</td>
+            <td>_poisson_</td>
+            <td>_density_</td>
+        </tr>
 """
 
 PARTS_HTML_TEMPLATE = r"""
-		<tr>
-			<td>_partname_</td>
-			<td>_parttype_</td>
-		</tr>
+        <tr>
+            <td>_partname_</td>
+            <td>_parttype_</td>
+        </tr>
 """
 
 INSTANCES_HTML_TEMPLATE = r"""
-		<tr>
-			<td>_instancename_</td>
-			<td>_instancenodes_</td>
-			<td>_instanceelements_</td>
-		</tr>
+        <tr>
+            <td>_instancename_</td>
+            <td>_instancenodes_</td>
+            <td>_instanceelements_</td>
+        </tr>
 """
 
 STEPS_HTML_TEMPLATE = r"""
-		<tr>
-			<td>_stepname_</td>
-			<td>_steptime_</td>
-			<td>_stepframes_</td>
-			<td>_stepprocedure_</td>
-		</tr>
+        <tr>
+            <td>_stepname_</td>
+            <td>_steptime_</td>
+            <td>_stepframes_</td>
+            <td>_stepprocedure_</td>
+        </tr>
 """
 
 JOB_HTML_TEMPLATE = r"""
-		<tr>
-			<td>_jobanalysiscode_</td>
-			<td>_jobcreationtime_</td>
-			<td>_jobprecision_</td>
-		</tr>
+        <tr>
+            <td>_jobanalysiscode_</td>
+            <td>_jobcreationtime_</td>
+            <td>_jobprecision_</td>
+        </tr>
 """
 
 # ==============  SCRIPTS TEMPLATES ================
