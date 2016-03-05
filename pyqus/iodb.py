@@ -80,7 +80,7 @@ def get_max_pe(dbpath,fname="max_pe.txt"):
 			for td in frame.fieldOutputs['PE'].values:
 				temp_list.append(td.maxPrincipal)
 			maxv = max(temp_list)
-			f.write("%6.6f\t%6.6f\n"%(frame.frameValue + k*tbystep, maxv))
+			f.write("%0.6f , %0.6f\n"%(frame.frameValue + k*tbystep, maxv))
 		k += 1
 	f.close()
 
