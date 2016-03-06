@@ -1,0 +1,14 @@
+<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Frame</jobName><clientHost type="string">LABDLS</clientHost><handle type="integer">0</handle></Started>
+<Heading><heading type="string">Two-dimensional overhead hoist frame</heading><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Frame</jobName></Heading>
+<Odb_File><file type="string">C:\Users\User\Desktop\LABPro\PX1505 - PyQus\pyqus\pyqus\examples\odb\Frame.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Frame</jobName></Odb_File>
+<Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">Frame</jobName></Completed>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName><clientHost type="string">LABDLS</clientHost><handle type="integer">3368</handle></Started>
+<Step><stepId type="integer">1</stepId><stepName type="string">10kN central load</stepName><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></Step>
+<Odb_Frame><step type="integer">0</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></Odb_Frame>
+<Status><step type="integer">1</step><increment type="integer">0</increment><attempts type="integer">0</attempts><severe type="integer">0</severe><equilibrium type="integer">0</equilibrium><iterations type="integer">0</iterations><totalTime type="float">0</totalTime><stepTime type="float">0</stepTime><timeIncrement type="float">2.22e-16</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></Status>
+<MEMORY_ESTIMATE><memory type="float">20</memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></MEMORY_ESTIMATE>
+<Odb_Frame><step type="integer">0</step><frame type="integer">1</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></Odb_Frame>
+<Status><step type="integer">1</step><increment type="integer">1</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">1</equilibrium><iterations type="integer">1</iterations><totalTime type="float">0</totalTime><stepTime type="float">2.22e-16</stepTime><timeIncrement type="float">2.22e-16</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></Status>
+<End_Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></End_Step>
+<Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">Frame</jobName></Completed>
+<JOB_COMPLETED><jobName type="string">Frame</jobName><time type="string">Sat Mar 05 00:56:08 2016</time></JOB_COMPLETED></msgwrapper>

@@ -1,0 +1,940 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models.changeKey(fromName='Model-1', toName='standard')
+mdb.models['standard'].ConstrainedSketch(name='__profile__', sheetSize=0.25)
+mdb.models['standard'].sketches['__profile__'].sketchOptions.setValues(
+    decimalPlaces=3)
+mdb.models['standard'].sketches['__profile__'].rectangle(point1=(-0.0275, 
+    0.0225), point2=(0.02125, -0.01375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.02125, 
+    0.004375))
+mdb.models['standard'].sketches['__profile__'].delete(objectList=(
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.02125, 
+    0.004375), ), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    0.0225))
+mdb.models['standard'].sketches['__profile__'].EqualLengthConstraint(entity1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    -0.01375), ), entity2=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    0.0225), ))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.0275, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.02125, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    -0.010330107063055, -0.023654306307435), value=0.1, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.0275, 
+    -0.01375), ), vertex2=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.02125, 
+    -0.01375), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.0275, 
+    0.004375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0225, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0225, 
+    0.0225))
+mdb.models['standard'].sketches['__profile__'].move(objectList=(
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.0275, 
+    0.004375), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0225, 
+    -0.01375), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0225, 
+    0.0225), )), vector=(-0.025625, 0.0))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.053125, 
+    0.0225))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.053125, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    -0.0564765408635139, 0.00896133482456207), value=0.05, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.053125, 
+    0.0225), ), vertex2=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.053125, 
+    -0.01375), ))
+mdb.models['standard'].sketches['__profile__'].Arc3Points(point1=(0.046875, 
+    0.03625), point2=(0.046875, -0.01375), point3=(0.0625, 0.02375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    0.03625))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0657, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].TangentConstraint(entity1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    0.03625), ), entity2=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0657, 
+    0.01125), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.053125, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    0.03625))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.071875, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].move(objectList=(
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.053125, 
+    0.01125), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    -0.01375), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.003125, 
+    0.03625), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.071875, 
+    0.01125), )), vector=(-0.001797, 0.0))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.004922, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].TangentConstraint(entity1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.004922, 
+    -0.01375), ), entity2=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].RadialDimension(curve=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125), ), radius=0.025, textPoint=(0.0655877739191055, 
+    -0.0193991288542748))
+mdb.models['standard'].sketches['__profile__'].dimensions[2].setValues(
+    reference=ON)
+mdb.models['standard'].sketches['__profile__'].CircleByCenterPerimeter(center=(
+    0.0425, 0.0125), point1=(0.0525, 0.01625))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0325, 
+    0.00875))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].ConcentricConstraint(entity1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0325, 
+    0.00875), ), entity2=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.035078, 
+    0.0075))
+mdb.models['standard'].sketches['__profile__'].RadialDimension(curve=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.035078, 
+    0.0075), ), radius=0.015, textPoint=(0.0297759883105755, 
+    0.0219836011528969))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.045078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.059123, 
+    0.016517))
+mdb.models['standard'].sketches['__profile__'].VerticalDimension(textPoint=(
+    0.0632773488759995, 0.0129371425136924), value=0.0, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.045078, 
+    0.01125), ), vertex2=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((
+    0.0591229376635357, 0.0165168516238259), ))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.045078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.067003, 
+    0.023263))
+mdb.models['standard'].sketches['__profile__'].VerticalDimension(textPoint=(
+    0.0746369957923889, 0.012744665145874), value=0.0, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.045078, 
+    0.01125), ), vertex2=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((
+    0.0670023934959005, 0.0232633662991235), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.054922, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.004922, 
+    -0.01375))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.004922, 
+    0.03625))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.030078, 
+    0.01125))
+mdb.models['standard'].sketches['__profile__'].move(objectList=(
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.054922, 
+    0.01125), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.004922, 
+    -0.01375), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.004922, 
+    0.03625), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.070078, 
+    0.01125), ), 
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.030078, 
+    0.01125), )), vector=(0.034922, 0.00375))
+mdb.models['standard'].Part(dimensionality=THREE_D, name='Lug', type=
+    DEFORMABLE_BODY)
+mdb.models['standard'].parts['Lug'].BaseSolidExtrude(depth=0.02, sketch=
+    mdb.models['standard'].sketches['__profile__'])
+del mdb.models['standard'].sketches['__profile__']
+mdb.models['standard'].Material('Steel')
+mdb.models['standard'].materials['Steel'].Elastic(table=((200000000000.0, 0.3), 
+    ))
+mdb.models['standard'].HomogeneousSolidSection(material='Steel', name=
+    'LugSection', thickness=1.0)
+mdb.models['standard'].parts['Lug'].SectionAssignment(offset=0.0, region=
+    Region(cells=mdb.models['standard'].parts['Lug'].cells.findAt(((-0.02, 
+    0.006667, 0.013333), ), )), sectionName='LugSection')
+mdb.models['standard'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['standard'].rootAssembly.Instance(dependent=ON, name='Lug-1', part=
+    mdb.models['standard'].parts['Lug'])
+mdb.models['standard'].StaticStep(description=
+    'Apply uniform pressure to the hole', name='LugLoad', previous='Initial')
+mdb.models['standard'].fieldOutputRequests['F-Output-1'].setValues(region=MODEL
+    , variables=('S', 'U', 'RF', 'NFORC'))
+del mdb.models['standard'].historyOutputRequests['H-Output-1']
+mdb.models['standard'].EncastreBC(createStepName='LugLoad', name='Fix left end'
+    , region=Region(
+    faces=mdb.models['standard'].rootAssembly.instances['Lug-1'].faces.findAt((
+    (-0.02, 0.006667, 0.013333), ), )))
+mdb.models['standard'].parts['Lug'].PartitionCellByPlaneThreePoints(cells=
+    mdb.models['standard'].parts['Lug'].cells.findAt(((-0.02, 0.006667, 
+    0.013333), )), point1=mdb.models['standard'].parts['Lug'].vertices.findAt((
+    0.095, 0.015, 0.02), ), point2=
+    mdb.models['standard'].parts['Lug'].InterestingPoint(
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.08, 0.03, 0.02), ), 
+    MIDDLE), point3=mdb.models['standard'].parts['Lug'].InterestingPoint(
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.08, 0.03, 0.0), ), 
+    MIDDLE))
+mdb.models['standard'].rootAssembly.regenerate()
+mdb.models['standard'].Pressure(createStepName='LugLoad', magnitude=50000000.0, 
+    name='Pressure load', region=Region(
+    side1Faces=mdb.models['standard'].rootAssembly.instances['Lug-1'].faces.findAt(
+    ((0.094899, 0.013267, 0.006667), ), )))
+mdb.models['standard'].parts['Lug'].PartitionCellByPlaneThreePoints(cells=
+    mdb.models['standard'].parts['Lug'].cells.findAt(((-0.02, 0.006667, 
+    0.006667), ), ((-0.02, 0.023333, 0.013333), ), ), point1=
+    mdb.models['standard'].parts['Lug'].InterestingPoint(
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.069393, 0.004393, 0.0), 
+    ), MIDDLE), point2=mdb.models['standard'].parts['Lug'].InterestingPoint(
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.069393, 0.004393, 
+    0.02), ), MIDDLE), point3=
+    mdb.models['standard'].parts['Lug'].InterestingPoint(
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.090607, 0.025607, 
+    0.02), ), MIDDLE))
+mdb.models['standard'].parts['Lug'].DatumPointByEdgeParam(edge=
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.055, -0.01, 0.02), ), 
+    parameter=0.25)
+mdb.models['standard'].parts['Lug'].PartitionCellByPlanePointNormal(cells=
+    mdb.models['standard'].parts['Lug'].cells.findAt(((-0.02, 0.006667, 
+    0.006667), ), ((-0.02, 0.023333, 0.013333), ), ), normal=
+    mdb.models['standard'].parts['Lug'].edges.findAt((0.055, -0.01, 0.02), ), 
+    point=mdb.models['standard'].parts['Lug'].datums[5])
+mdb.models['standard'].parts['Lug'].seedPart(size=0.007)
+mdb.models['standard'].parts['Lug'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10M, elemLibrary=STANDARD)), 
+    regions=(mdb.models['standard'].parts['Lug'].cells, ))
+mdb.models['standard'].parts['Lug'].generateMesh()
+mdb.models['standard'].rootAssembly.regenerate()
+mdb.Job(description='Linear Elastic Steel Connecting Lug', model='standard', 
+    name='Lug')
+# Save by User on 2016_03_05-11.13.07; build 6.14-2 2014_08_22-09.00.46 134497
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='explicit', objectToCopy=mdb.models['standard'])
+mdb.models['explicit'].materials['Steel'].Density(table=((7800.0, ), ))
+mdb.models['explicit'].ExplicitDynamicsStep(maintainAttributes=True, name=
+    'LugLoad', previous='Initial', timePeriod=0.005)
+mdb.models['explicit'].fieldOutputRequests['F-Output-1'].setValues(
+    numIntervals=125)
+mdb.models['explicit'].parts['Lug'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8R, elemLibrary=EXPLICIT, hourglassControl=ENHANCED), ElemType(
+    elemCode=C3D6, elemLibrary=EXPLICIT), ElemType(elemCode=C3D4, 
+    elemLibrary=EXPLICIT)), regions=(mdb.models['explicit'].parts['Lug'].cells, 
+    ))
+mdb.Job(description='dynamic analysis of lug', model='explicit', name='expLug', 
+    type=ANALYSIS)
+mdb.models['standard'].rootAssembly.regenerate()
+mdb.models['explicit'].rootAssembly.regenerate()
+# Save by User on 2016_03_05-11.13.08; build 6.14-2 2014_08_22-09.00.46 134497
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['standard'].fieldOutputRequests['F-Output-1'].setValues(
+    timeInterval=0.01, variables=('S', 'MISES', 'E', 'PE', 'NE', 'LE', 'U', 
+    'RF', 'RT'))
+# Save by User on 2016_03_05-11.20.57; build 6.14-2 2014_08_22-09.00.46 134497
+# Save by User on 2016_03_05-11.21.07; build 6.14-2 2014_08_22-09.00.46 134497
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Lug'].submit(consistencyChecking=OFF)
+mdb.jobs['Lug']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'LABDLS', 'handle': 0, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(HEADING, {'phase': BATCHPRE_PHASE, 
+    'heading': 'Linear Elastic Steel Connecting Lug', 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'OUTPUT AT EXACT, PREDEFINED TIME POINTS WAS REQUESTED IN THIS STEP. IN ORDER TO WRITE OUTPUT AT EXACT TIME POINTS SPECIFIED, Abaqus MIGHT USE TIME INCREMENTS SMALLER THAN THE MINIMUM TIME INCREMENT ALLOWED IN THE STEP. IN ADDITION, THE NUMBER OF INCREMENTS REQUIRED TO COMPLETE THE STEP WILL IN GENERAL INCREASE.', 
+    'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'THE REQUEST FOR MISES OUTPUT WILL BE REPLACED BY A REQUEST FOR S OUTPUT', 
+    'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST LE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(WARNING, {'phase': BATCHPRE_PHASE, 
+    'message': 'STRAIN OUTPUT REQUEST NE IS NOT VALID FOR SOME ELEMENTS IN THIS ANALYSIS. THIS REQUEST IS SWITCHED TO THE STRAIN MEASURE, E.', 
+    'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\User\\Desktop\\LABPro\\PX1505 - PyQus\\pyqus\\pyqus\\examples\\odb\\New\\Lug.odb', 
+    'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'LABDLS', 'handle': 2872, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STEP, {
+    'stepName': 'Apply uniform pressure to the hole', 'phase': STANDARD_PHASE, 
+    'stepId': 1, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 0.01, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Lug']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Lug', 'memory': 46.0})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.01, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 1, 'stepTime': 0.01, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 2, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.02, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 2, 'stepTime': 0.02, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 3, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.03, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 3, 'stepTime': 0.03, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 4, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.04, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 4, 'stepTime': 0.04, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 5, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.05, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 5, 'stepTime': 0.05, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 6, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.06, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 6, 'stepTime': 0.06, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 7, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.07, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999999, 'increment': 7, 'stepTime': 0.07, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 8, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.08, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 8, 'stepTime': 0.08, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 9, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.09, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999999, 'increment': 9, 'stepTime': 0.09, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 10, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.1, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 10, 'stepTime': 0.1, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 11, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.11, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999999, 'increment': 11, 'stepTime': 0.11, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 12, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.12, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 12, 'stepTime': 0.12, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 13, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.13, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 13, 'stepTime': 0.13, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 14, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.14, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 14, 'stepTime': 0.14, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 15, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.15, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 15, 'stepTime': 0.15, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 16, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.16, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 16, 'stepTime': 0.16, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 17, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.17, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 17, 'stepTime': 0.17, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 18, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.18, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 18, 'stepTime': 0.18, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 19, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.19, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999998, 'increment': 19, 'stepTime': 0.19, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 20, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.2, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 20, 'stepTime': 0.2, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 21, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.21, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 21, 'stepTime': 0.21, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 22, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.22, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999998, 'increment': 22, 'stepTime': 0.22, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 23, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.23, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 23, 'stepTime': 0.23, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 24, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.24, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 24, 'stepTime': 0.24, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 25, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.25, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999998, 'increment': 25, 'stepTime': 0.25, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 26, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.26, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 26, 'stepTime': 0.26, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 27, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.27, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 27, 'stepTime': 0.27, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 28, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.28, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 28, 'stepTime': 0.28, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 29, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.29, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 29, 'stepTime': 0.29, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 30, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.3, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999996, 'increment': 30, 'stepTime': 0.3, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 31, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.31, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 31, 'stepTime': 0.31, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 32, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.32, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 32, 'stepTime': 0.32, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 33, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.33, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 33, 'stepTime': 0.33, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 34, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.34, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 34, 'stepTime': 0.34, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 35, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.35, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 35, 'stepTime': 0.35, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 36, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.36, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 36, 'stepTime': 0.36, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 37, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.37, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999995, 'increment': 37, 'stepTime': 0.37, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 38, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.38, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 38, 'stepTime': 0.38, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 39, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.39, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 39, 'stepTime': 0.39, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 40, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.4, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 40, 'stepTime': 0.4, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 41, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.41, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 41, 'stepTime': 0.41, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 42, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.42, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 42, 'stepTime': 0.42, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 43, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.43, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999995, 'increment': 43, 'stepTime': 0.43, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 44, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.44, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 44, 'stepTime': 0.44, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 45, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.45, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 45, 'stepTime': 0.45, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 46, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.46, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 46, 'stepTime': 0.46, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 47, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.47, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 47, 'stepTime': 0.47, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 48, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.48, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 48, 'stepTime': 0.48, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 49, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.49, 'attempts': 1, 
+    'timeIncrement': 0.00999999999999995, 'increment': 49, 'stepTime': 0.49, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 50, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.5, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 50, 'stepTime': 0.5, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 51, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.51, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 51, 'stepTime': 0.51, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 52, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.52, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 52, 'stepTime': 0.52, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 53, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.53, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 53, 'stepTime': 0.53, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 54, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.54, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 54, 'stepTime': 0.54, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 55, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.55, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 55, 'stepTime': 0.55, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 56, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.56, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 56, 'stepTime': 0.56, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 57, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.57, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 57, 'stepTime': 0.57, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 58, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.58, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 58, 'stepTime': 0.58, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 59, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.59, 'attempts': 1, 
+    'timeIncrement': 0.0099999999999999, 'increment': 59, 'stepTime': 0.59, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 60, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.6, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 60, 'stepTime': 0.6, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 61, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.61, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 61, 'stepTime': 0.61, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 62, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.62, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 62, 'stepTime': 0.62, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 63, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.63, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 63, 'stepTime': 0.63, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 64, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.64, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 64, 'stepTime': 0.64, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 65, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.65, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 65, 'stepTime': 0.65, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 66, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.66, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 66, 'stepTime': 0.66, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 67, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.67, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 67, 'stepTime': 0.67, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 68, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.68, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 68, 'stepTime': 0.68, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 69, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.69, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 69, 'stepTime': 0.69, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 70, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.7, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 70, 'stepTime': 0.7, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 71, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.71, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 71, 'stepTime': 0.71, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 72, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.72, 'attempts': 1, 
+    'timeIncrement': 0.0099999999999999, 'increment': 72, 'stepTime': 0.72, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 73, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.73, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 73, 'stepTime': 0.73, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 74, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.74, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 74, 'stepTime': 0.74, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 75, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.75, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 75, 'stepTime': 0.75, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 76, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.76, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 76, 'stepTime': 0.76, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 77, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.77, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 77, 'stepTime': 0.77, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 78, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.78, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 78, 'stepTime': 0.78, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 79, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.79, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 79, 'stepTime': 0.79, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 80, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.8, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 80, 'stepTime': 0.8, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 81, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.81, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 81, 'stepTime': 0.81, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 82, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.82, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 82, 'stepTime': 0.82, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 83, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.83, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 83, 'stepTime': 0.83, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 84, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.84, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 84, 'stepTime': 0.84, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 85, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.85, 'attempts': 1, 
+    'timeIncrement': 0.0099999999999999, 'increment': 85, 'stepTime': 0.85, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 86, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.86, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 86, 'stepTime': 0.86, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 87, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.87, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 87, 'stepTime': 0.87, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 88, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.88, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 88, 'stepTime': 0.88, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 89, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.89, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 89, 'stepTime': 0.89, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 90, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.9, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 90, 'stepTime': 0.9, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 91, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.91, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 91, 'stepTime': 0.91, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 92, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.92, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 92, 'stepTime': 0.92, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 93, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.93, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 93, 'stepTime': 0.93, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 94, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.94, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 94, 'stepTime': 0.94, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 95, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.95, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 95, 'stepTime': 0.95, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 96, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.96, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 96, 'stepTime': 0.96, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 97, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.97, 'attempts': 1, 
+    'timeIncrement': 0.0099999999999999, 'increment': 97, 'stepTime': 0.97, 
+    'step': 1, 'jobName': 'Lug', 'severe': 0, 'iterations': 1, 
+    'phase': STANDARD_PHASE, 'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 98, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.98, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 98, 'stepTime': 0.98, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 99, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 0.99, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 99, 'stepTime': 0.99, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 100, 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(STATUS, {'totalTime': 1.0, 'attempts': 1, 
+    'timeIncrement': 0.01, 'increment': 100, 'stepTime': 1.0, 'step': 1, 
+    'jobName': 'Lug', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Lug']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Lug'})
+mdb.jobs['Lug']._Message(JOB_COMPLETED, {'time': 'Sat Mar 05 11:23:36 2016', 
+    'jobName': 'Lug'})
+# Save by User on 2016_03_05-11.24.40; build 6.14-2 2014_08_22-09.00.46 134497

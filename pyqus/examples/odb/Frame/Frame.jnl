@@ -1,0 +1,225 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models.changeKey(fromName='Model-1', toName='standard')
+mdb.models['standard'].ConstrainedSketch(name='__profile__', sheetSize=4.0)
+mdb.models['standard'].sketches['__profile__'].rectangle(point1=(-0.4, -0.2), 
+    point2=(0.4, 0.4))
+mdb.models['standard'].sketches['__profile__'].delete(objectList=(
+    mdb.models['standard'].sketches['__profile__'].constraints[18], 
+    mdb.models['standard'].sketches['__profile__'].constraints[21], 
+    mdb.models['standard'].sketches['__profile__'].constraints[19], 
+    mdb.models['standard'].sketches['__profile__'].constraints[20]))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0, 0.4))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0, -0.2))
+mdb.models['standard'].sketches['__profile__'].ParallelConstraint(entity1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.0, 0.4), 
+    ), entity2=mdb.models['standard'].sketches['__profile__'].geometry.findAt((
+    0.0, -0.2), ))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.4, 0.4))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.4, 0.4))
+mdb.models['standard'].sketches['__profile__'].HorizontalDimension(textPoint=(
+    0.350665062665939, 0.510207295417786), value=1.0, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.4, 0.4), 
+    ), vertex2=mdb.models['standard'].sketches['__profile__'].vertices.findAt((
+    0.4, 0.4), ))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.4, -0.2))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.4, -0.2))
+mdb.models['standard'].sketches['__profile__'].HorizontalDimension(textPoint=(
+    0.299293786287308, -0.478947371244431), value=2.0, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.4, 
+    -0.2), ), vertex2=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.4, -0.2), 
+    ))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.4, 0.4))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.4, -0.2))
+mdb.models['standard'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    0.589653432369232, 0.0547049306333065), value=1.0, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.4, 0.4), 
+    ), vertex2=mdb.models['standard'].sketches['__profile__'].vertices.findAt((
+    0.4, -0.2), ))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-1.6, -0.2))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.2, 0.4))
+mdb.models['standard'].sketches['__profile__'].ObliqueDimension(textPoint=(
+    -0.524880945682526, 0.353907465934753), value=1.0, vertex1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-1.6, 
+    -0.2), ), vertex2=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((0.2, 0.4), 
+    ))
+mdb.models['standard'].sketches['__profile__'].Line(point1=(-0.45, 
+    0.533012701892263), point2=(-0.15, -0.333012701892264))
+mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.15, 
+    -0.333013))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.05, 
+    -0.333013))
+mdb.models['standard'].sketches['__profile__'].CoincidentConstraint(
+    addUndoState=False, entity1=
+    mdb.models['standard'].sketches['__profile__'].vertices.findAt((-0.15, 
+    -0.333012701892264), ), entity2=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.05, 
+    -0.333013), ))
+mdb.models['standard'].sketches['__profile__'].Line(point1=(-0.15, 
+    -0.333012701892264), point2=(0.55, 0.533012701892263))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.05, 
+    -0.333013))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.3, 0.1))
+mdb.models['standard'].sketches['__profile__'].breakCurve(curve1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.05, 
+    -0.333013), ), curve2=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.3, 0.1), 
+    ), point1=(-0.247599363327026, -0.332068353891373), point2=(
+    -0.158276319503784, -0.259217292070389))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.3, 0.1))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.2, 0.1))
+mdb.models['standard'].sketches['__profile__'].EqualLengthConstraint(entity1=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.3, 0.1), 
+    ), entity2=mdb.models['standard'].sketches['__profile__'].geometry.findAt((
+    0.2, 0.1), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.485701, 
+    -0.38399))
+mdb.models['standard'].sketches['__profile__'].HorizontalConstraint(entity=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((-0.485701, 
+    -0.38399), ))
+mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.514299, 
+    -0.306365))
+mdb.models['standard'].sketches['__profile__'].HorizontalConstraint(entity=
+    mdb.models['standard'].sketches['__profile__'].geometry.findAt((0.514299, 
+    -0.306365), ))
+mdb.models['standard'].Part(dimensionality=TWO_D_PLANAR, name='Frame', type=
+    DEFORMABLE_BODY)
+mdb.models['standard'].parts['Frame'].BaseWire(sketch=
+    mdb.models['standard'].sketches['__profile__'])
+del mdb.models['standard'].sketches['__profile__']
+mdb.models['standard'].Material('Steel')
+mdb.models['standard'].materials['Steel'].Elastic(table=((200000000000.0, 0.3), 
+    ))
+mdb.models['standard'].TrussSection(area=1.963e-05, material='Steel', name=
+    'FrameSection')
+mdb.models['standard'].parts['Frame'].SectionAssignment(region=Region(
+    edges=mdb.models['standard'].parts['Frame'].edges.findAt(((-0.214206, 
+    0.534799, 0.0), ), ((0.160794, -0.11472, 0.0), ), ((0.785794, -0.331227, 
+    0.0), ), ((0.660794, 0.318292, 0.0), ), ((-0.839206, -0.11472, 0.0), ), ((
+    -0.339206, 0.318292, 0.0), ), ((-0.214206, -0.331227, 0.0), ), )), 
+    sectionName='FrameSection')
+mdb.models['standard'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['standard'].rootAssembly.Instance(dependent=ON, name='Frame-1', 
+    part=mdb.models['standard'].parts['Frame'])
+mdb.models['standard'].rootAssembly.instances['Frame-1'].translate(vector=(
+    -0.035794, 0.331227, 0.0))
+mdb.models['standard'].StaticLinearPerturbationStep(description=
+    '10kN central load', matrixSolver=SOLVER_DEFAULT, name='Apply load', 
+    previous='Initial')
+mdb.models['standard'].fieldOutputRequests['F-Output-1'].setValues(region=MODEL
+    , variables=PRESELECT)
+mdb.models['standard'].ConcentratedForce(cf2=-10000.0, createStepName=
+    'Apply load', name='Force', region=((
+    mdb.models['standard'].rootAssembly.instances['Frame-1'].vertices.findAt(((
+    0.0, 0.0, 0.0), )), ), ))
+mdb.models['standard'].EncastreBC(createStepName='Initial', name='Fixed', 
+    region=(
+    mdb.models['standard'].rootAssembly.instances['Frame-1'].vertices.findAt(((
+    -1.0, 0.0, 0.0), )), None, None, None))
+mdb.models['standard'].DisplacementBC(createStepName='Initial', name='Roller', 
+    region=(
+    mdb.models['standard'].rootAssembly.instances['Frame-1'].vertices.findAt(((
+    1.0, 0.0, 0.0), )), None, None, None), u2=0.0)
+mdb.models['standard'].parts['Frame'].seedPart(size=1.0)
+mdb.models['standard'].parts['Frame'].setElementType(elemTypes=(ElemType(
+    elemCode=T2D2, elemLibrary=STANDARD), ), regions=(
+    mdb.models['standard'].parts['Frame'].edges, ))
+mdb.models['standard'].parts['Frame'].generateMesh()
+mdb.Job(description='Two-dimensional overhead hoist frame', model='standard', 
+    name='Frame')
+mdb.jobs['Frame'].setValues(contactPrint=ON, echoPrint=ON, historyPrint=ON, 
+    modelPrint=ON)
+# Save by User on 2016_03_05-00.53.56; build 6.14-2 2014_08_22-09.00.46 134497
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='explicit', objectToCopy=mdb.models['standard'])
+mdb.models['explicit'].materials['Steel'].Density(table=((7800.0, ), ))
+mdb.models['explicit'].ExplicitDynamicsStep(maintainAttributes=True, name=
+    'Apply load', previous='Initial', timePeriod=0.01)
+mdb.models['explicit'].rootAssembly.Set(name='Center', vertices=
+    mdb.models['explicit'].rootAssembly.instances['Frame-1'].vertices.findAt(((
+    0.0, 0.0, 0.0), )))
+mdb.models['explicit'].historyOutputRequests['H-Output-1'].setValues(frequency=
+    1, region=mdb.models['explicit'].rootAssembly.sets['Center'], variables=(
+    'UT', ))
+mdb.models['explicit'].parts['Frame'].setElementType(elemTypes=(ElemType(
+    elemCode=T2D2, elemLibrary=EXPLICIT), ), regions=(
+    mdb.models['standard'].parts['Frame'].edges, ))
+mdb.Job(description='Two-dimensional overhead hoist frame-explicit dynamics', 
+    model='explicit', name='expFrame', type=ANALYSIS)
+mdb.models['standard'].rootAssembly.regenerate()
+mdb.models['explicit'].rootAssembly.regenerate()
+# Save by User on 2016_03_05-00.53.56; build 6.14-2 2014_08_22-09.00.46 134497
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['Frame'].submit(consistencyChecking=OFF)
+mdb.jobs['Frame']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'clientHost': 'LABDLS', 'handle': 0, 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(HEADING, {'phase': BATCHPRE_PHASE, 
+    'heading': 'Two-dimensional overhead hoist frame', 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(ODB_FILE, {'phase': BATCHPRE_PHASE, 
+    'file': 'C:\\Users\\User\\Desktop\\LABPro\\PX1505 - PyQus\\pyqus\\pyqus\\examples\\odb\\Frame.odb', 
+    'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(COMPLETED, {'phase': BATCHPRE_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'clientHost': 'LABDLS', 'handle': 3368, 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(STEP, {'stepName': '10kN central load', 
+    'phase': STANDARD_PHASE, 'stepId': 1, 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 0, 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(STATUS, {'totalTime': 0.0, 'attempts': 0, 
+    'timeIncrement': 2.22e-16, 'increment': 0, 'stepTime': 0.0, 'step': 1, 
+    'jobName': 'Frame', 'severe': 0, 'iterations': 0, 'phase': STANDARD_PHASE, 
+    'equilibrium': 0})
+mdb.jobs['Frame']._Message(MEMORY_ESTIMATE, {'phase': STANDARD_PHASE, 
+    'jobName': 'Frame', 'memory': 20.0})
+mdb.jobs['Frame']._Message(ODB_FRAME, {'phase': STANDARD_PHASE, 'step': 0, 
+    'frame': 1, 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(STATUS, {'totalTime': 0.0, 'attempts': 1, 
+    'timeIncrement': 2.22e-16, 'increment': 1, 'stepTime': 2.22e-16, 'step': 1, 
+    'jobName': 'Frame', 'severe': 0, 'iterations': 1, 'phase': STANDARD_PHASE, 
+    'equilibrium': 1})
+mdb.jobs['Frame']._Message(END_STEP, {'phase': STANDARD_PHASE, 'stepId': 1, 
+    'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
+    'message': 'Analysis phase complete', 'jobName': 'Frame'})
+mdb.jobs['Frame']._Message(JOB_COMPLETED, {'time': 'Sat Mar 05 00:56:08 2016', 
+    'jobName': 'Frame'})
+# Save by User on 2016_03_05-00.57.02; build 6.14-2 2014_08_22-09.00.46 134497

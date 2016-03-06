@@ -1,0 +1,93 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 6.14-2 replay file
+# Internal Version: 2014_08_22-09.00.46 134497
+# Run by User on Sat Mar 05 11:10:59 2016
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+#: Abaqus Error: 
+#: This error may have occurred due to a change to the Abaqus Scripting
+#: Interface. Please see the Abaqus Scripting Manual for the details of
+#: these changes. Also see the "Example environment files" section of 
+#: the Abaqus Site Guide for up-to-date examples of common tasks in the
+#: environment file.
+#: Execution of "onCaeGraphicsStartup()" in the site directory failed.
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=258.289886474609, 
+    height=146.438812255859)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+import sys
+sys.path.insert(9, 
+    r'c:/SIMULIA/Abaqus/6.14-2/code/python2.7/lib/abaqus_plugins/examples')
+import os
+os.system(
+    r'"C:\SIMULIA\Abaqus\6.14-2\code\bin\abq6142.exe" fetch job=gsi_lug_caemodel.py')
+execfile('gsi_lug_caemodel.py')
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: The model database has been saved to "C:\Users\User\Desktop\LABPro\PX1505 - PyQus\pyqus\pyqus\examples\odb\New\Lug.cae".
+#: The model "explicit" has been created.
+#: The model database has been saved to "C:\Users\User\Desktop\LABPro\PX1505 - PyQus\pyqus\pyqus\examples\odb\New\Lug.cae".
+p = mdb.models['explicit'].parts['Lug']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p1 = mdb.models['standard'].parts['Lug']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+a = mdb.models['standard'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+mdb.models['standard'].fieldOutputRequests['F-Output-1'].setValues(variables=(
+    'S', 'MISES', 'E', 'PE', 'NE', 'LE', 'U', 'RF', 'RT'), timeInterval=0.01)
+mdb.save()
+#: The model database has been saved to "C:\Users\User\Desktop\LABPro\PX1505 - PyQus\pyqus\pyqus\examples\odb\New\Lug.cae".
+mdb.save()
+#: The model database has been saved to "C:\Users\User\Desktop\LABPro\PX1505 - PyQus\pyqus\pyqus\examples\odb\New\Lug.cae".
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['Lug'].submit(consistencyChecking=OFF)
+#: The job input file "Lug.inp" has been submitted for analysis.
+#: Job Lug: Analysis Input File Processor completed successfully.
+#: Job Lug: Abaqus/Standard completed successfully.
+#: Job Lug completed successfully. 
+o3 = session.openOdb(
+    name='C:/Users/User/Desktop/LABPro/PX1505 - PyQus/pyqus/pyqus/examples/odb/New/Lug.odb')
+#: Model: C:/Users/User/Desktop/LABPro/PX1505 - PyQus/pyqus/pyqus/examples/odb/New/Lug.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       1
+#: Number of Node Sets:          1
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.249736, 
+    farPlane=0.310763, width=0.202982, height=0.0745221, 
+    viewOffsetX=0.00520899, viewOffsetY=-0.00561264)
+mdb.save()
+#: The model database has been saved to "C:\Users\User\Desktop\LABPro\PX1505 - PyQus\pyqus\pyqus\examples\odb\New\Lug.cae".
